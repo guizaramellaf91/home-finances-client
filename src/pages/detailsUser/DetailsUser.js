@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './Finances.css';
+import './DetailsUser.css';
 
-const Finances = () => {
+const DetailsUser = () => {
+
     return (
         <>
-            <h1>Home Finances | Finanças</h1>
+            <h1>Home Finances | Meus Dados</h1>
             <Link to='/'><button className="Login-Btn">Voltar</button></Link>
         </>
-    )
-}
+    );
+};
 
-export default Finances;
+export default DetailsUser;

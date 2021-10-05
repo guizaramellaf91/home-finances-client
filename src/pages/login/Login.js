@@ -12,7 +12,8 @@ const Login = () => {
         api.post('user/auth/', values).then(resp => {
             const { data } = resp;
             if (data) {
-                localStorage.setItem(Keys.jsonkey, data);
+                localStorage.setItem(Keys.jsonkey, data.token);
+                localStorage.setItem('name-user', data.username);
                 history.push('/');
             }
         }).catch(function(e){
