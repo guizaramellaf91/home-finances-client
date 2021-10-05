@@ -10,7 +10,7 @@ const Home = () => {
     }
     return (
         <>
-            <h1>ZClient | Tela Principal</h1>
+            <h1>Home Finances | Tela Principal</h1>
             <p>Seja bem vindo Administrador!</p>
             <button onClick={deslogarUser} className="Login-Btn">Deslogar</button>
         </>

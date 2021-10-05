@@ -9,10 +9,10 @@ import './Login.css';
 const Login = () => {
 
     const handleSubmit = values => {
-        api.post('usuario/auth/', values).then(resp => {
+        api.post('user/auth/', values).then(resp => {
             const { data } = resp;
             if (data) {
-                console.log('Usuário autenticado!');
+                console.log('authenticated user!');
                 localStorage.setItem(Keys.jsonkey, data);
                 history.push('/');
             }
@@ -20,7 +20,7 @@ const Login = () => {
     };
     return (
         <>
-            <h1>ZClient | Login</h1>
+            <h1>Home Finances | Login</h1>
             <p>Digite usuário e senha para prosseguir</p>
             <Formik initialValues={{}} onSubmit={handleSubmit}>
                 <Form className="Login">
@@ -38,7 +38,7 @@ const Login = () => {
                     </div>
                     <div className="Login-Group">
                         <Field
-                            name="senha"
+                            name="password"
                             type="password"
                             value={this}
                             className="Login-Field"
