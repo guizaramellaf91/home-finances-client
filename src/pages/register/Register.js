@@ -1,30 +1,35 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { ErrorMessage, Formik, Form, Field } from 'formik'
-import * as yup from 'yup'
-import api from '../../services/api'
-import { history } from '../../history'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ErrorMessage, Formik, Form, Field } from 'formik';
+import * as yup from 'yup';
+import api from '../../services/api';
+import { history } from '../../history';
 
-import '../login/Login.css'
+import '../login/Login.css';
 
 const Register = () => {
     const handleSubmit = values => {
-        api.post('usuario/', values).then(resp => {
+        api.post('user/', values).then(resp => {
             const { data } = resp
             if (data) {
-                console.log('cadastro realizado com sucesso!')
-                history.push('/login')
+                console.log('cadastro realizado com sucesso!');
+                history.push('/login');
+            } else {
+                console.log('opsssss!!!!');
             }
-        })
+        }).catch(function(e){
+            console.log(e);
+            alert('Não foi possível concluir o cadastro, reveja os dados e tente novamente.');
+        });
     }
 
     const validations = yup.object().shape({
         login: yup.string().required(),
-        senha: yup.string().min(3).required()
+        password: yup.string().min(3).required()
     })
     return (
         <>
-            <h1>ZClient | Registre-se</h1>
+            <h1>Home Finances | Registre-se</h1>
             <p>Preencha os campos para criar um novo usuário.</p>
             <Formik
                 initialValues={{}}
@@ -34,14 +39,14 @@ const Register = () => {
                 <Form className="Login">
                     <div className="Login-Group">
                         <Field
-                            name="nome"
+                            name="name"
                             value={this}
                             placeholder="Digite o nome"
                             className="Login-Field"
                         />
                         <ErrorMessage
                             component="span"
-                            name="nome"
+                            name="name"
                             className="Login-Error"
                         />
                     </div>
@@ -74,7 +79,7 @@ const Register = () => {
                     </div>
                     <div className="Login-Group">
                         <Field
-                            name="senha"
+                            name="password"
                             type="password"
                             value={this}
                             placeholder="Digite a senha"
@@ -82,7 +87,7 @@ const Register = () => {
                         />
                         <ErrorMessage
                             component="span"
-                            name="senha"
+                            name="password"
                             className="Login-Error"
                         />
                     </div>

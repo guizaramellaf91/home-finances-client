@@ -12,10 +12,12 @@ const Login = () => {
         api.post('user/auth/', values).then(resp => {
             const { data } = resp;
             if (data) {
-                console.log('authenticated user!');
                 localStorage.setItem(Keys.jsonkey, data);
                 history.push('/');
             }
+        }).catch(function(e){
+            console.log(e);
+            alert('Não foi possível conectar, login ou senha incorretos.');
         });
     };
     return (
