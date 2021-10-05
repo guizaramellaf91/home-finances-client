@@ -18,6 +18,7 @@ const Login = () => {
         }).catch(function(e){
             console.log(e);
             alert('Não foi possível conectar, login ou senha incorretos.');
+            document.getElementById('password').value = '';
         });
     };
     return (
@@ -40,6 +41,7 @@ const Login = () => {
                     </div>
                     <div className="Login-Group">
                         <Field
+                            id="password"
                             name="password"
                             type="password"
                             value={this}
