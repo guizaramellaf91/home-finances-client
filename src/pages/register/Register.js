@@ -12,11 +12,9 @@ const Register = () => {
         api.post('user/', values).then(resp => {
             const { data } = resp
             if (data) {
-                console.log('cadastro realizado com sucesso!');
+                alert('Cadastrado realizado! Você será redirecionado(a) para tela de login.');
                 history.push('/login');
-            } else {
-                console.log('opsssss!!!!');
-            }
+            } 
         }).catch(function(e){
             console.log(e);
             alert('Não foi possível concluir o cadastro, reveja os dados e tente novamente.');
