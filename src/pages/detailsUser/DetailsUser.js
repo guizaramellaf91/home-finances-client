@@ -27,7 +27,6 @@ class DetailsUser extends React.Component {
                     password: user.password,
                     status: user.status
                 });
-                console.log(this.state);
             }
         }).catch(function (e) {
             console.log(e);
@@ -42,7 +41,7 @@ class DetailsUser extends React.Component {
                 <p>Nome: {u.name}</p>
                 <p>Login: {u.login}</p>
                 <p>E-mail: {u.email}</p>
-                <p>Senha: {u.password}</p>
+                <p>Senha: {u.password.replace(/./gi,'*')}</p>
                 <p>Situação: {u.status ? 'Ativo' : 'Inativo'}</p>
                 <Link to='/'><button className="Login-Btn">Voltar</button></Link>
             </>
