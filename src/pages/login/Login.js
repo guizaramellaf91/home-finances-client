@@ -13,7 +13,8 @@ const Login = () => {
             const { data } = resp;
             if (data) {
                 localStorage.setItem(Keys.jsonkey, data.token);
-                localStorage.setItem('name-user', data.username);
+                localStorage.setItem('user-id', data.userid);
+                localStorage.setItem('user-name', data.username);
                 history.push('/');
             }
         }).catch(function(e){
