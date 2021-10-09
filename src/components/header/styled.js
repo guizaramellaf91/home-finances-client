@@ -7,7 +7,7 @@ export const AreaHeader = styled.div`
     color: #fff;
     
     @media screen and (max-width: 360px){
-        width: 450px;
+        width: 500px;
     }
 
     .container{
