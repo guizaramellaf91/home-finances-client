@@ -1,5 +1,7 @@
 import React from 'react';
 import api from '../../services/api';
+import { ContainerPage } from '../../components/main/Main';
+import { AreaUsers } from './styled';
 import './styled.js';
 
 class Users extends React.Component {
@@ -21,20 +23,22 @@ class Users extends React.Component {
 
     render() {
         return (
-            <>
-                <p>Usuário cadastrados: {this.state.users.length}</p>
-                <ul>
-                    {
-                        React.Children.toArray(
-                            this.state.users.map((item, i) =>
-                                <li key={i}>
-                                    <p>Nome: {item.name}</p>
-                                </li>
+            <ContainerPage>
+                <AreaUsers>
+                    <p>Usuário cadastrados: <b>{this.state.users.length}</b></p>
+                    <ul>
+                        {
+                            React.Children.toArray(
+                                this.state.users.map((item, i) =>
+                                    <li key={i}>
+                                        <p>Nome: <b>{item.name}</b></p>
+                                    </li>
+                                )
                             )
-                        )
-                    }
-                </ul>
-            </>
+                        }
+                    </ul>
+                </AreaUsers>
+            </ContainerPage>
         );
     }
 }

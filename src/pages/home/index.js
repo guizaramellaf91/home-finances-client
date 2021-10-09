@@ -1,11 +1,11 @@
 import React from 'react';
 import { ContainerPage, TitlePage } from '../../components/main/Main';
 
-const Page = () => {
+const Page = (user) => {
     return (
         <ContainerPage>
             <TitlePage>
-                Seja bem vindo!
+                Welcome {user.user.name}!
             </TitlePage>
         </ContainerPage>
     );

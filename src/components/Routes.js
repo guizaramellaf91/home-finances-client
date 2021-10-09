@@ -5,12 +5,11 @@ import DetailsUser from '../pages/detailsUser';
 import Finances from '../pages/finances';
 import Users from '../pages/users';
 
-export default () => (
+export default (props) => (
     <Switch>
-        <Route exact path="/"><Home /></Route>
+        <Route exact path="/"><Home user={props.user}/></Route>
         <Route exact path="/detailsUser"><DetailsUser/></Route>
         <Route exact path="/users"><Users/></Route>
         <Route exact path="/finances"><Finances/></Route>
-        <Route exact path="/logout">Logout do sistema!</Route>
     </Switch>
 );

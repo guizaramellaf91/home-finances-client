@@ -17,7 +17,6 @@ function App() {
           avatar: u.photoURL
         }
         setUser(newUser);
-        console.log(user);
       }
 
     if(user === null){
@@ -29,9 +28,9 @@ function App() {
     return (
         <>
             <BrowserRouter>
-                <Header user={user} />
-                <Routes />
-                <Footer />
+                <Header user={user}/>
+                <Routes user={user}/>
+                <Footer/>
             </BrowserRouter>
         </>
     )

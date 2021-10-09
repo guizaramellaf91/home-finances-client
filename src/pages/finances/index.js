@@ -1,6 +1,7 @@
 import React from 'react';
 import api from '../../services/api';
-import './styled.js';
+import { ContainerPage } from '../../components/main/Main';
+import { AreaFinances } from './styled.js';
 
 class Finances extends React.Component {
     constructor(props) {
@@ -21,20 +22,23 @@ class Finances extends React.Component {
 
     render() {
         return (
-            <>
-                <ul>
-                    {
-                        React.Children.toArray(
-                            this.state.finances.map((item, i) =>
-                                <li key={i}>
-                                    <p>Descrição: {item.description}</p>
-                                    <p>Valor: {item.price}</p>
-                                </li>
+            <ContainerPage>
+                <AreaFinances>
+                    <p>Registros financeiros: <b>{this.state.finances.length}</b></p>
+                    <ul>
+                        {
+                            React.Children.toArray(
+                                this.state.finances.map((item, i) =>
+                                    <li key={i}>
+                                        <p>Descrição: {item.description}</p>
+                                        <p>Valor: <b>{item.price}</b></p>
+                                    </li>
+                                )
                             )
-                        )
-                    }
-                </ul>
-            </>
+                        }
+                    </ul>
+                </AreaFinances>
+            </ContainerPage>
         );
     }
 }
