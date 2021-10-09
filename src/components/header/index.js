@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Dehaze } from '@material-ui/icons';
 import { AreaHeader } from './styled';
-import { history } from '../../history';
-import firebase from 'firebase/compat/app';
 
 function Header(props) {
 
@@ -15,14 +13,14 @@ function Header(props) {
         <AreaHeader>
             <div className="container">
                 <div className="logo">
-                    <Dehaze />
+                    <img alt="" src="./money.png"/>
+                    <label>Home Finances Client</label>
                 </div>
                 <nav>
                     <ul>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/users">Usuários</Link></li>
                         <li><Link to="/finances">Finanças</Link></li>
-                        <li><Link to="/config">Configurações</Link></li>
                         <li onClick={logout}>Sair</li>
                     </ul>
                     <div className="avatar">

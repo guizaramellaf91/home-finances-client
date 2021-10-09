@@ -6,16 +6,24 @@ export const AreaHeader = styled.div`
     color: #fff;
     
     .container{
-        padding: 5px 20px;
+        padding: 10px 20px;
         display: flex;
         align-items: center;
     }
 
         .logo{
             flex: 1;
-
             img{
-                width: 60px;
+                margin-left: 5px;
+                margin-right: 25px;
+                width: 35px;
+                background: transparent;
+            }
+            label{
+                font-size: 16px;
+                position: absolute;
+                margin-top: 10px;
+                color: #ccc;
             }
         }
 

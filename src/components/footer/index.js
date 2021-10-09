@@ -5,7 +5,7 @@ import { AreaFooter } from './styled';
 function Footer() {
     return (
         <AreaFooter>
-            Todos os direitos reservados.
+            Powered by <b>Guilherme Zaramella</b>. All copyrights reserved 2021.
         </AreaFooter>
     );
 
