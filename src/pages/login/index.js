@@ -6,7 +6,7 @@ import apiFirebase from '../../services/api-firebase';
 import './styled.js';
 import { AreaLogin } from './styled';
 import { BtbDefaultIcons, BtnDefault } from '../../components/main/styled';
-import { ArrowBackIos, Facebook } from '@material-ui/icons';
+import { ArrowBackIos, Facebook, Email } from '@material-ui/icons';
 import { history } from '../../history';
 
 export default ({onReceiveGoogle}) => {
@@ -45,29 +45,29 @@ export default ({onReceiveGoogle}) => {
             <Switch>
                 <Route exact path="*">
                     <AreaLogin>
-                        <h1>Faça login em sua conta</h1>
+                        <h1>Log in to your account</h1>
                         <BtbDefaultIcons>
                             <Facebook />
-                            <div className="center">Faça Login com o Facebook</div>
+                            <div className="center">Login with Facebook</div>
                         </BtbDefaultIcons>
                         <BtbDefaultIcons onClick={actionLoginGoogle}>
-                            <Facebook />
-                            <div className="center">Faça Login com o Google</div>
+                            <Email />
+                            <div className="center">Login with Gmail</div>
                         </BtbDefaultIcons>
-                        <p>OU</p>
+                        <p>OR</p>
                         <form onSubmit={handleSubmit}>
                             <div className="form--input">
                                 <label>Login</label>
                                 <input type="login" id="login" name="login" value={this} />
                             </div>
                             <div className="form--input">
-                                <label>Senha</label>
+                                <label>Password</label>
                                 <input type="password" id="password" name="password" value={this} />
                             </div>
-                            <BtnDefault type="submit">Entrar</BtnDefault>
+                            <BtnDefault type="submit">Enter</BtnDefault>
                             <div className="footerLogin">
-                                Não tem uma conta?
-                                <Link to="/register">Registre-se</Link>
+                                Don't have an account?
+                                <Link to="/register">Sign In</Link>
                             </div>
                         </form>
                     </AreaLogin>

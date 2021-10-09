@@ -18,8 +18,8 @@ function Header(props) {
                 <nav>
                     <ul>
                         <li><Link to="/">Home</Link></li>
-                        <li><Link to="/users">Usuários</Link></li>
-                        <li><Link to="/finances">Finanças</Link></li>
+                        <li><Link to="/users">Users</Link></li>
+                        <li><Link to="/finances">Finances</Link></li>
                         <li onClick={logout}>Logout</li>
                     </ul>
                     <div className="avatar">
