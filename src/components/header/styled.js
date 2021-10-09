@@ -6,8 +6,8 @@ export const AreaHeader = styled.div`
     background-image: linear-gradient(to right, #F35D26, #370d44);
     color: #fff;
     
-    @media screen and (max-width: 500px){
-        width: 100%;
+    @media screen and (max-width: 360px){
+        width: 450px;
     }
 
     .container{
@@ -52,14 +52,19 @@ export const AreaHeader = styled.div`
                             color: #F58800
                     }
                 }
-                    a{
-                        text-decoration: none;
-                        color: #fff;
+                .liHome{
+                    @media screen and (max-width: 700px){
+                    display: none;
+                }
+                }
+                a{
+                    text-decoration: none;
+                    color: #fff;
 
-                        &:hover{
-                            color: #F58800
-                        }
+                    &:hover{
+                        color: #F58800
                     }
+                }
 
             .avatar{
                 display: flex;

@@ -12,12 +12,12 @@ function Header(props) {
         <AreaHeader>
             <div className="container">
                 <div className="logo">
-                    <img alt="" src="./money.png"/>
+                    <Link to="/"><img alt="" src="./money.png"/></Link>
                     <label>HOME FINANCES</label>
                 </div>
                 <nav>
                     <ul>
-                        <li><Link to="/">Home</Link></li>
+                        <li className="liHome"><Link to="/">Home</Link></li>
                         <li><Link to="/users">Users</Link></li>
                         <li><Link to="/finances">Finances</Link></li>
                         <li onClick={logout}>Logout</li>
