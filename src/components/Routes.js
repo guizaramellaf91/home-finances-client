@@ -1,27 +1,19 @@
 import React from 'react';
-import { Router, Switch, Route } from 'react-router';
-import Login from '../pages/login';
-import Register from '../pages/register';
+import { Switch, Route } from 'react-router';
+
 import Home from '../pages/home';
+import Login from '../pages/login';
 import DetailsUser from '../pages/detailsUser';
+import Finances from '../pages/finances';
 import Users from '../pages/users';
-import Finances from '../pages/finances'
-import NotFound from '../pages/notfound/NotFound';
-import PrivateRoute from './PrivateRoute';
-import { history } from '../history';
 
-const Routes = () => (
-    <Router history={history}>
-        <Switch>
-            <Route component={Login} exact path="/login" />
-            <Route component={Register} exact path="/register" />
-            <PrivateRoute component={Home} exact path="/" />
-            <PrivateRoute component={DetailsUser} exact path="/details-user" />
-            <PrivateRoute component={Users} exact path="/users" />
-            <PrivateRoute component={Finances} exact path="/finances" />
-            <PrivateRoute component={NotFound} />
-        </Switch>
-    </Router>
+export default () => (
+    <Switch>
+        <Route exact path="/"><Home /></Route>
+        <Route exact path="/register"><Login /></Route>
+        <Route exact path="/detailsUser"><DetailsUser/></Route>
+        <Route exact path="/users"><Users/></Route>
+        <Route exact path="/finances"><Finances/></Route>
+        <Route exact path="/logout">Logout do sistema!</Route>
+    </Switch>
 );
-
-export default Routes;
