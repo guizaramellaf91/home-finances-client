@@ -1,29 +1,38 @@
 import styled from "styled-components";
 
 export const AreaHeader = styled.div`
+    
     height: 60px;
     background-image: linear-gradient(to right, #F35D26, #370d44);
     color: #fff;
     
+    @media screen and (max-width: 500px){
+        width: 450px;
+    }
+
     .container{
         padding: 10px 20px;
         display: flex;
         align-items: center;
     }
-
         .logo{
             flex: 1;
             img{
                 margin-left: 5px;
-                margin-right: 25px;
+                margin-right: 15px;
                 width: 35px;
                 background: transparent;
             }
             label{
+                font-weight: lighter;
                 font-size: 16px;
                 position: absolute;
                 margin-top: 10px;
-                color: #ccc;
+            }
+            @media screen and (max-width: 700px){
+                label{
+                    display: none;
+                }
             }
         }
 

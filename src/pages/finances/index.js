@@ -1,7 +1,5 @@
 import React from 'react';
 import api from '../../services/api';
-import { Link } from 'react-router-dom';
-
 import './styled.js';
 
 class Finances extends React.Component {
@@ -36,7 +34,6 @@ class Finances extends React.Component {
                         )
                     }
                 </ul>
-                <Link to='/'><button className="Login-Btn">Voltar</button></Link>
             </>
         );
     }

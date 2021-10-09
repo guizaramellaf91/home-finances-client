@@ -3,8 +3,8 @@ import { BrowserRouter } from 'react-router-dom';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import Routes from '../components/Routes';
-import './App.css';
 import Login from '../pages/login';
+import './App.css';
 
 function App() {
 

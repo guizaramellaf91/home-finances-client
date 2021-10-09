@@ -14,7 +14,7 @@ function Header(props) {
             <div className="container">
                 <div className="logo">
                     <img alt="" src="./money.png"/>
-                    <label>Home Finances Client</label>
+                    <label>HOME FINANCES</label>
                 </div>
                 <nav>
                     <ul>
