@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import apiFirebase from '../../services/api-firebase';
 import { AreaHeader } from './styled';
 
 function Header(props) {
@@ -18,8 +19,7 @@ function Header(props) {
                 <nav>
                     <ul>
                         <li className="liHome"><Link to="/">Home</Link></li>
-                        <li><Link to="/users">Users</Link></li>
-                        <li><Link to="/finances">Finances</Link></li>
+                        <li><Link to="/finances">My Finances</Link></li>
                         <li onClick={logout}>Logout</li>
                     </ul>
                     <div className="avatar">
