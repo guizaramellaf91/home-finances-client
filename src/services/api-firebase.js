@@ -11,14 +11,17 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_FIREBASE_APP_ID
 }
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-const db = firebaseApp.firestore();
+const app = firebase.initializeApp(firebaseConfig);
 
-export default {
+const ApiFirebase = {
 
   googleLogar: async () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    let result = await firebase.auth().signInWithPopup(provider);
-    return result;
+    if (app) {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      let result = await firebase.auth().signInWithPopup(provider);
+      return result;
+    }
   }
 }
+
+export default ApiFirebase;

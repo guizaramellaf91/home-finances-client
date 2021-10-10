@@ -5,7 +5,7 @@ const Page = (user) => {
     return (
         <ContainerPage>
             <TitlePage>
-                Welcome {user.user.name}!
+                Welcome <b>{user.user.name}</b>!
             </TitlePage>
         </ContainerPage>
     );

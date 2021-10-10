@@ -4,6 +4,7 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import Routes from '../components/Routes';
 import Login from '../pages/login';
+import { emptyimg } from '../components/Keys';
 import './App.css';
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
             password: u.password,
             status: u.status,
             registered: u.registered,
-            avatar: null
+            avatar: emptyimg
         }
         setUser(user);
     }

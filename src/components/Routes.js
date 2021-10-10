@@ -5,7 +5,7 @@ import DetailsUser from '../pages/detailsUser';
 import Finances from '../pages/finances';
 import Users from '../pages/users';
 
-export default (props) => (
+const Routes = (props) => (
     <Switch>
         <Route exact path="/"><Home user={props.user}/></Route>
         <Route exact path="/detailsUser"><DetailsUser user={props.user}/></Route>
@@ -13,3 +13,5 @@ export default (props) => (
         <Route exact path="/finances"><Finances/></Route>
     </Switch>
 );
+
+export default Routes;

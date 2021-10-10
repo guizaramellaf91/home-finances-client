@@ -7,7 +7,7 @@ import { AreaLogin } from './styled';
 import { BtbDefaultIcons, BtnDefault } from '../../components/main/styled';
 import { ArrowBackIos, Facebook, Email } from '@material-ui/icons';
 
-export default ({onReceiveGoogle, onReceiveUser}) => {
+const Login = ({onReceiveGoogle, onReceiveUser}) => {
 
     const actionLoginGoogle = async () => {
         let result = await apiFirebase.googleLogar();
@@ -101,3 +101,5 @@ export default ({onReceiveGoogle, onReceiveUser}) => {
         </BrowserRouter>
     );
 };
+
+export default Login;

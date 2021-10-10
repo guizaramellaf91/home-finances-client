@@ -11,6 +11,13 @@ export const AreaDetailsUser = styled.div`
         position: relative;
     }
 
+    img{
+        margin-left: 5px;
+        margin-right: 15px;
+        border-radius: 15px;
+        width: 100px;
+        background: transparent;
+    }
     li{
         list-style: none;
 
