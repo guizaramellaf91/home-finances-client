@@ -21,7 +21,20 @@ function App() {
     }
 
     const actionLoginUser = async (u) => {
-        console.log(u);
+        let user = {
+            id: u._id,
+            name: u.name,
+            email: u.email,
+            login: u.login,
+            password: u.password,
+            status: u.status,
+            registered: u.registered,
+            avatar: emptyimg
+        }
+        setUser(user);
+    }
+
+    const actionCreateUser = async (u) => {
         let user = {
             id: u._id,
             name: u.name,
@@ -37,7 +50,9 @@ function App() {
 
     if (!user) {
         return (
-            <Login onReceiveGoogle={actionLoginDataGoogle} onReceiveUser={actionLoginUser} />
+            <Login onReceiveGoogle={actionLoginDataGoogle}
+                onReceiveUser={actionLoginUser}
+                onCreateUser={actionCreateUser} />
         );
     }
 

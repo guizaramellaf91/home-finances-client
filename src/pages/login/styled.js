@@ -14,7 +14,7 @@ export const AreaLogin = styled.div`
     h1{
         font-size: 22px;
         font-weight: lighter;
-        margin-top: 25px;
+        margin-top: 18px;
         margin-bottom: 45px;
     }
 

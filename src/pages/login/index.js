@@ -7,13 +7,13 @@ import { AreaLogin } from './styled';
 import { BtbDefaultIcons, BtnDefault } from '../../components/main/styled';
 import { ArrowBackIos, Facebook, Email } from '@material-ui/icons';
 
-const Login = ({onReceiveGoogle, onReceiveUser}) => {
+const Login = ({ onReceiveGoogle, onReceiveUser, onCreateUser }) => {
 
     const actionLoginGoogle = async () => {
         let result = await apiFirebase.googleLogar();
-        if(result){
+        if (result) {
             onReceiveGoogle(result.user);
-        }else{
+        } else {
             alert('Error');
         }
     }
@@ -30,7 +30,7 @@ const Login = ({onReceiveGoogle, onReceiveUser}) => {
                     const user = JSON.parse(JSON.stringify(resp.data));
                     onReceiveUser(user);
                 }
-            }).catch(function (e) {});
+            }).catch(function (e) { });
         }).catch(function (e) {
             console.log(e);
             alert('Não foi possível conectar, login ou senha incorretos.');
@@ -38,9 +38,57 @@ const Login = ({onReceiveGoogle, onReceiveUser}) => {
         });
     }
 
+    const actionCreateUser = async (event) => {
+        event.preventDefault();
+        api.post('user/', {
+            name: event.target.elements.name.value,
+            login: event.target.elements.login.value,
+            email: event.target.elements.email.value,
+            password: event.target.elements.password.value
+        }).then(resp => {
+            const { data } = resp;
+            onCreateUser(data);
+        }).catch(function (e) {
+            console.log(e);
+            alert('Não foi possível criar o usuário, tente novamente mais tarde.');
+            document.getElementById('password').value = '';
+        });
+    }
+
     return (
         <BrowserRouter>
             <Switch>
+                <Route exact path="/register">
+                    <AreaLogin>
+                        <h1 className="organize">
+                            <Link to="/"><ArrowBackIos /></Link>
+                            Create your account</h1>
+                        <p>It's completely free!</p>
+                        <form onSubmit={actionCreateUser}>
+                            <div className="form--input">
+                                <label>Name</label>
+                                <input type="text" placeholder="type your name" name="name" />
+                            </div>
+                            <div className="form--input">
+                                <label>Login</label>
+                                <input type="text" placeholder="type your login" name="login" />
+                            </div>
+                            <div className="form--input">
+                                <label>Email</label>
+                                <input type="email" placeholder="type your email" name="email" />
+                            </div>
+                            <div className="form--input">
+                                <label>Password</label>
+                                <input type="password" placeholder="type your password" name="password" />
+                            </div>
+                            <BtnDefault type="submit">CREATE NOW!</BtnDefault>
+                            <div className="footerLogin">
+                                You already have an account?
+                                <Link to="/">Faça login</Link>
+                            </div>
+                        </form>
+                    </AreaLogin>
+                </Route>
                 <Route exact path="*">
                     <AreaLogin>
                         <h1>HOME FINANCES</h1>
@@ -66,33 +114,6 @@ const Login = ({onReceiveGoogle, onReceiveUser}) => {
                             <div className="footerLogin">
                                 Don't have an account?
                                 <Link to="/register">Sign In</Link>
-                            </div>
-                        </form>
-                    </AreaLogin>
-                </Route>
-                <Route exact path="/register">
-                    <AreaLogin>
-                        <h1 className="organize">
-                            <Link to="/"><ArrowBackIos /></Link>
-                            Crie sua conta</h1>
-                        <p>Crie sua conta, é grátis!</p>
-                        <form>
-                            <div className="form--input">
-                                <label>Nome</label>
-                                <input type="text" />
-                            </div>
-                            <div className="form--input">
-                                <label>E-mail</label>
-                                <input type="email" />
-                            </div>
-                            <div className="form--input">
-                                <label>Senha</label>
-                                <input type="password" />
-                            </div>
-                            <BtnDefault>Crie sua conta agora!</BtnDefault>
-                            <div className="footerLogin">
-                                Já tem uma conta?
-                                <Link to="/">Faça login</Link>
                             </div>
                         </form>
                     </AreaLogin>
