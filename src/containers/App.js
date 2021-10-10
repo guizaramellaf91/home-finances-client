@@ -28,12 +28,13 @@ function App() {
             login: u.login,
             password: u.password,
             status: u.status,
+            registered: u.registered,
             avatar: null
         }
         setUser(user);
     }
 
-    if (user === null) {
+    if (!user) {
         return (
             <Login onReceiveGoogle={actionLoginDataGoogle} onReceiveUser={actionLoginUser} />
         );
