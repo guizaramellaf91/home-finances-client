@@ -11,17 +11,31 @@ function App() {
     const [user, setUser] = useState(null);
 
     const actionLoginDataGoogle = async (u) => {
-        let newUser = {
+        let user = {
           id: u.uid,
           name: u.displayName,
           avatar: u.photoURL
         }
-        setUser(newUser);
+        setUser(user);
       }
+
+    const actionLoginUser = async (u) => {
+        console.log(u);
+        let user = {
+            id: u._id,
+            name: u.name,
+            email: u.email,
+            login: u.login,
+            password: u.password,
+            status: u.status,
+            avatar: null
+        }
+        setUser(user);
+    }
 
     if(user === null){
         return (
-            <Login onReceiveGoogle={actionLoginDataGoogle} />
+            <Login onReceiveGoogle={actionLoginDataGoogle} onReceiveUser={actionLoginUser} />
         );
     }
 

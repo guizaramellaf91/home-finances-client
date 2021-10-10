@@ -8,7 +8,7 @@ import Users from '../pages/users';
 export default (props) => (
     <Switch>
         <Route exact path="/"><Home user={props.user}/></Route>
-        <Route exact path="/detailsUser"><DetailsUser/></Route>
+        <Route exact path="/detailsUser"><DetailsUser user={props.user}/></Route>
         <Route exact path="/users"><Users/></Route>
         <Route exact path="/finances"><Finances/></Route>
     </Switch>

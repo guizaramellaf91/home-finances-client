@@ -1,5 +1,4 @@
 import React from 'react';
-import Keys from '../../components/Keys';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import api from '../../services/api';
 import apiFirebase from '../../services/api-firebase';
@@ -7,9 +6,8 @@ import './styled.js';
 import { AreaLogin } from './styled';
 import { BtbDefaultIcons, BtnDefault } from '../../components/main/styled';
 import { ArrowBackIos, Facebook, Email } from '@material-ui/icons';
-import { history } from '../../history';
 
-export default ({onReceiveGoogle}) => {
+export default ({onReceiveGoogle, onReceiveUser}) => {
 
     const actionLoginGoogle = async () => {
         let result = await apiFirebase.googleLogar();
@@ -20,25 +18,25 @@ export default ({onReceiveGoogle}) => {
         }
     }
 
-    const handleSubmit = (event) => {
+    const actionLoginUser = async (event) => {
         event.preventDefault();
         api.post('user/auth/', {
             login: event.target.elements.login.value,
             password: event.target.elements.password.value
         }).then(resp => {
             const { data } = resp;
-            if (data) {
-                localStorage.setItem(Keys.jsonkey, data.token);
-                localStorage.setItem('userid', data.userid);
-                localStorage.setItem('username', data.username);
-                history.push('/');
-            }
+            api.get(`/user/${data.userid}`).then(resp => {
+                if (resp) {
+                    const user = JSON.parse(JSON.stringify(resp.data));
+                    onReceiveUser(user);
+                }
+            }).catch(function (e) {});
         }).catch(function (e) {
             console.log(e);
             alert('Não foi possível conectar, login ou senha incorretos.');
             document.getElementById('password').value = '';
         });
-    };
+    }
 
     return (
         <BrowserRouter>
@@ -55,7 +53,7 @@ export default ({onReceiveGoogle}) => {
                             <div className="center">Login with Gmail</div>
                         </BtbDefaultIcons>
                         <p>OR</p>
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={actionLoginUser}>
                             <div className="form--input">
                                 <label>Login</label>
                                 <input type="login" id="login" name="login" value={this} />

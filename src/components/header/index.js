@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AreaHeader } from './styled';
+import { emptyimg } from '../Keys';
 
 function Header(props) {
 
-    function logout(){
+    function logout() {
         window.location.reload();
     }
 
@@ -12,7 +13,7 @@ function Header(props) {
         <AreaHeader>
             <div className="container">
                 <div className="logo">
-                    <Link to="/"><img alt="" src="./money.png"/></Link>
+                    <Link to="/"><img alt="" src="./money.png" /></Link>
                     <label>HOME FINANCES</label>
                 </div>
                 <nav>
@@ -23,7 +24,7 @@ function Header(props) {
                         <li onClick={logout}>Logout</li>
                     </ul>
                     <div className="avatar">
-                        <Link to="/detailsUser"><img alt="" src={props.user.avatar} /></Link>
+                        <Link to="/detailsUser"><img alt="" src={props.user.avatar != null ? props.user.avatar : emptyimg} /></Link>
                         <Link to="/detailsUser"><label>{props.user.name}</label></Link>
                     </div>
                 </nav>
