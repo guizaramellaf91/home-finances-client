@@ -5,5 +5,6 @@ export const ContainerPage = styled.div`
 `;
 
 export const TitlePage = styled.h1`
-    font-size: 15px;
+    font-weight: lighter;
+    font-size: 14px;
 `;
