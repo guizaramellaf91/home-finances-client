@@ -12,12 +12,12 @@ function App() {
 
     const actionLoginDataGoogle = async (u) => {
         let user = {
-          id: u.uid,
-          name: u.displayName,
-          avatar: u.photoURL
+            id: u.uid,
+            name: u.displayName,
+            avatar: u.photoURL
         }
         setUser(user);
-      }
+    }
 
     const actionLoginUser = async (u) => {
         console.log(u);
@@ -33,20 +33,18 @@ function App() {
         setUser(user);
     }
 
-    if(user === null){
+    if (user === null) {
         return (
             <Login onReceiveGoogle={actionLoginDataGoogle} onReceiveUser={actionLoginUser} />
         );
     }
 
     return (
-        <>
-            <BrowserRouter>
-                <Header user={user}/>
-                <Routes user={user}/>
-                <Footer/>
-            </BrowserRouter>
-        </>
+        <BrowserRouter>
+            <Header user={user} />
+            <Routes user={user} />
+            <Footer />
+        </BrowserRouter>
     )
 }
 

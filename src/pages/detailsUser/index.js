@@ -7,12 +7,12 @@ const Page = (u) => {
     return (
         <ContainerPage>
             <AreaDetailsUser>
-                <p>Nome: {u.user.name}</p>
-                <p>Login: {u.user.login}</p>
-                <p>E-mail: {u.user.email}</p>
-                <p>Senha: {u.user.password != null ?
-                    u.user.password.replace(/./gi, '*') : 'N/A'}</p>
-                <p>Situação: {u.user.status ? 'Ativo' : 'Inativo'}</p>
+                <p>Nome: <b>{u.user.name}</b></p>
+                <p>Login: <b>{u.user.login}</b></p>
+                <p>E-mail: <b>{u.user.email}</b></p>
+                <p>Senha: <b>{u.user.password != null ?
+                    u.user.password.replace(/./gi, '*') : 'N/A'}</b></p>
+                <p>Situação: <b>{u.user.status ? 'Ativo' : 'Inativo'}</b></p>
             </AreaDetailsUser>
         </ContainerPage>
     );
