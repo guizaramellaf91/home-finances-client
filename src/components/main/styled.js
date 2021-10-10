@@ -26,11 +26,11 @@ export const BtbDefaultIcons = styled.button`
 
 export const BtnDefault = styled(BtbDefaultIcons)`
 
-    background-color: #7d2ae8;
+    background-color: #ED4B05;
     color: #fff;
     display: inline;
 
     &:hover{
-        background-color: #4e129c;
+        background-color: #EC7B04;
     }
 `;

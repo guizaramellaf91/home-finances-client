@@ -43,7 +43,7 @@ export default ({onReceiveGoogle, onReceiveUser}) => {
             <Switch>
                 <Route exact path="*">
                     <AreaLogin>
-                        <h1>Log in to your account</h1>
+                        <h1>HOME FINANCES</h1>
                         <BtbDefaultIcons>
                             <Facebook />
                             <div className="center">Login with Facebook</div>
@@ -62,7 +62,7 @@ export default ({onReceiveGoogle, onReceiveUser}) => {
                                 <label>Password</label>
                                 <input type="password" id="password" name="password" value={this} />
                             </div>
-                            <BtnDefault type="submit">Enter</BtnDefault>
+                            <BtnDefault type="submit">ENTER</BtnDefault>
                             <div className="footerLogin">
                                 Don't have an account?
                                 <Link to="/register">Sign In</Link>

@@ -12,7 +12,10 @@ export const AreaLogin = styled.div`
     box-shadow: 0px 0px 10px #ccc;
 
     h1{
-        font-size: 24px;
+        font-size: 22px;
+        font-weight: lighter;
+        margin-top: 25px;
+        margin-bottom: 45px;
     }
 
     .organize{
