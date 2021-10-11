@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const AreaHeader = styled.div`
     
-    height: 60px;
     background-image: linear-gradient(to right, #F35D26, #370d44);
     color: #fff;
     
@@ -11,6 +10,7 @@ export const AreaHeader = styled.div`
     }
 
     .container{
+        height: 65px;
         padding: 10px 20px;
         display: flex;
         align-items: center;

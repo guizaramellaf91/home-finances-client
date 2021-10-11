@@ -84,7 +84,7 @@ const Login = ({ onReceiveGoogle, onReceiveUser, onCreateUser }) => {
                             <BtnDefault type="submit">CREATE NOW!</BtnDefault>
                             <div className="footerLogin">
                                 You already have an account?
-                                <Link to="/">Faça login</Link>
+                                <Link to="/">Login</Link>
                             </div>
                         </form>
                     </AreaLogin>
