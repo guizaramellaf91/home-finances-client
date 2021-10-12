@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import apiFirebase from '../../services/api-firebase';
 import { AreaHeader } from './styled';
 
 function Header(props) {

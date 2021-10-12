@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 export const AreaDetailsUser = styled.div`
 
+    div{
+        width: 300px;
+    }
+
     h1{
         display: flex;
         font-size: 14px;
@@ -9,6 +13,11 @@ export const AreaDetailsUser = styled.div`
         color: #FF3600;
         margin-bottom: 30px;
         position: relative;
+    }
+
+    b{
+        margin-left: 5px;
+        cursor: pointer;
     }
 
     img{

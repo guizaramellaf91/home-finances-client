@@ -11,10 +11,15 @@ function App() {
 
     const [user, setUser] = useState(null);
 
-    const actionLoginDataGoogle = async (u) => {
+    const actionLoginGoogle = async (u) => {
+        var loginUser = u.email.split('@');
         let user = {
             id: u.uid,
             name: u.displayName,
+            email: u.email,
+            login: loginUser[0],
+            password: loginUser[0],
+            status: true,
             avatar: u.photoURL
         }
         setUser(user);
@@ -29,7 +34,7 @@ function App() {
             password: u.password,
             status: u.status,
             registered: u.registered,
-            avatar: emptyimg
+            avatar: u.avatar
         }
         setUser(user);
     }
@@ -43,14 +48,14 @@ function App() {
             password: u.password,
             status: u.status,
             registered: u.registered,
-            avatar: emptyimg
+            avatar: u.avatar
         }
         setUser(user);
     }
 
     if (!user) {
         return (
-            <Login onReceiveGoogle={actionLoginDataGoogle}
+            <Login onReceiveGoogle={actionLoginGoogle}
                 onReceiveUser={actionLoginUser}
                 onCreateUser={actionCreateUser} />
         );
