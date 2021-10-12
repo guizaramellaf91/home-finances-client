@@ -2,6 +2,16 @@ import api from '../services/api';
 import Login from '../pages/login';
 
 const userService = {
+    userExists: (u) => {
+        api.get(`users_google/${u.id_google}`).then(resp => {
+            const { data } = resp;
+            if(data){
+               return true;
+            }else{
+                return false;
+            }
+        })
+    },
     registerExistingUser: (u) => {
         api.post('user/', {
             id_google: u.id_google,

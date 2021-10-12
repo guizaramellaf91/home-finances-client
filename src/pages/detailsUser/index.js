@@ -7,14 +7,16 @@ import { AreaDetailsUser } from './styled.js';
 
 const Page = (u) => {
     
-    function invokeRegisterUser() {
+    var userExist = new Boolean(userService.userExists(u));
+
+    function invokeRegisterUser() {   
         userService.registerExistingUser(u.user);
     }
 
     return (
         <ContainerPage>
             <AreaDetailsUser>
-                {!u.user.registered ?
+                {!u.user.registered && !userExist ? 
                     <div>
                         <h1>AVISO IMPORTANTE: Você está logado em uma conta temporária, para usar as funcionalidades do sistema, registre sua conta</h1>
                         <BtbDefaultIcons onClick={invokeRegisterUser}>clicando aqui</BtbDefaultIcons>.
