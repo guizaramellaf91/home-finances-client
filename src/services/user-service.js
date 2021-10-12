@@ -2,8 +2,9 @@ import api from '../services/api';
 import Login from '../pages/login';
 
 const userService = {
-    actionRegisterExistingUser: (u) => {
+    registerExistingUser: (u) => {
         api.post('user/', {
+            id_google: u.id_google,
             name: u.name,
             email: u.email,
             login: u.login,
@@ -14,7 +15,7 @@ const userService = {
             const { data } = resp;
             alert(`cadastro realizado com sucesso!`);
             window.location.reload();
-            <Login onReceiveUser={data.user}/>
+            <Login onReceiveUser={data.user} />
         }).catch(function (e) {
             console.log(e);
             alert('Não foi possível criar o usuário, tente novamente mais tarde.');
