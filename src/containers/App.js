@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import api from '../services/api';
 import { BrowserRouter } from 'react-router-dom';
 import { emptyimg } from '../components/Keys';
 import Header from '../components/header';
@@ -23,7 +24,18 @@ function App() {
             status: true,
             avatar: !u.photoURL ? emptyimg : u.photoURL
         }
-        setUser(user);
+        await loginExiste(user);
+    }
+
+    const loginExiste = async (user) => {
+        api.get(`users_google/${user.id_google}`).then(resp => {
+            const { data } = resp;
+            if(data){
+                setUser(data);
+            }else{
+                setUser(user);
+            }
+        });         
     }
 
     const actionLoginUser = async (u) => {
