@@ -1,24 +1,17 @@
 import React, { useState } from 'react';
 import moment from 'moment';
-import userService from '../../services/user-service';
 import { ContainerPage } from '../../components/main/Main';
-import { BtbDefaultIcons } from '../../components/main/styled';
 import { AreaDetailsUser } from './styled.js';
+import Modal from '../../components/modal/Modal';
 
 function DetailsUser(u) {
     const [user] = useState(u.user);
-
-    function invokeRegisterUser() {
-        userService.registerExistingUser(user);
-    }
-
     return (
         <ContainerPage>
             <AreaDetailsUser>
                 {!user.registered ?
                     <div>
-                        <h1>AVISO IMPORTANTE: Você está logado em uma conta temporária, para usar as funcionalidades do sistema, registre sua conta</h1>
-                        <BtbDefaultIcons onClick={invokeRegisterUser}>clicando aqui</BtbDefaultIcons>.
+                        <h1>AVISO IMPORTANTE: Você está logado em uma conta temporária, para usar as funcionalidades do sistema, registre sua conta.</h1>
                     </div>
                     : <h1>MEUS DADOS</h1>}
                 <img alt="" src={user.avatar} />
@@ -30,6 +23,7 @@ function DetailsUser(u) {
                 <p>Senha: <b>{user.password ? user.password.replace(/./gi, '*') : 'N/A'}</b></p>
                 <p>Situação: <b>{user.status ? 'Ativo' : 'Inativo'}</b></p>
             </AreaDetailsUser>
+            {!user.registered ? <Modal user={user} /> : ''}
         </ContainerPage>
     );
 }
