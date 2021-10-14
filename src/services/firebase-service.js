@@ -16,10 +16,14 @@ const app = firebase.initializeApp(firebaseConfig);
 const ApiFirebase = {
 
   googleLogar: async () => {
-    if (app) {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      let result = await firebase.auth().signInWithPopup(provider);
-      return result;
+    try {
+      if (app) {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        let result = await firebase.auth().signInWithPopup(provider);
+        return result;
+      }
+    } catch (err) {
+      console.log(`googleLogar::::error::::`, err);
     }
   }
 }

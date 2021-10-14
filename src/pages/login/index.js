@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import api from '../../services/api';
-import apiFirebase from '../../services/api-firebase';
+import fireBaseService from '../../services/firebase-service';
 import './styled.js';
 import { AreaLogin } from './styled';
 import { BtbDefaultIcons, BtnDefault } from '../../components/main/styled';
@@ -10,11 +10,9 @@ import { ArrowBackIos, Facebook, Email } from '@material-ui/icons';
 const Login = ({ onReceiveGoogle, onReceiveUser, onCreateUser }) => {
 
     const actionLoginGoogle = async () => {
-        let result = await apiFirebase.googleLogar();
+        let result = await fireBaseService.googleLogar();
         if (result) {
             onReceiveGoogle(result.user);
-        } else {
-            alert('Error');
         }
     }
 
